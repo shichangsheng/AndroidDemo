@@ -1,5 +1,19 @@
-1.java和C++
-2.使用android_native_app_glue源码
-3.ndk是r21e
-4.jdk1.8
-5.使用gradle5.1.1 插件是3.4.0 com.android.tools.build:gradle:3.4.
+# Android NDK (r21e) + CMake 项目配置指南
+
+## 环境要求
+- **JDK**: 1.8
+- **Android NDK**: r21e
+- **Gradle**: 5.1.1
+- **Android Gradle Plugin**: 3.4.0 (`com.android.tools.build:gradle:3.4.0`)
+- **CMake**: ≥3.18.1 (需手动升级)
+
+## 项目结构
+app/
+├── src/
+│   ├── main/
+│   │   ├── java/      # Java代码
+│   │   ├── cpp/       # C++代码
+│   │   └── CMakeLists.txt
+│   └── build.gradle
+├── build.gradle
+└── local.properties
