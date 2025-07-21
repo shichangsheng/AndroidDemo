@@ -1,0 +1,17 @@
+// build.gradle (Project)
+buildscript {
+    repositories {
+        google()
+        jcenter()  // AGP 3.4.0 需要 jcenter
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.4.0'  // 使用 AGP 3.4.0
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()  // 依赖库可能需要 jcenter
+    }
+}

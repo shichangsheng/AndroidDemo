@@ -1,0 +1,45 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 31
+    buildToolsVersion '30.0.3'
+    ndkVersion "21.4.7075529"  // 或更高版本
+
+    defaultConfig {
+        applicationId "com.example.myapplication"
+        minSdkVersion 26
+        targetSdkVersion 31
+        versionCode 1
+        versionName "1.0"
+
+        externalNativeBuild {
+            cmake {
+                version "3.18.1"
+                //cppFlags "-std=c++11"
+                abiFilters 'arm64-v8a'
+                //arguments "-DANDROID_ARM_MODE=arm", "-DANDROID_STL=c++_shared"
+                //cFlags "-fsanitize=address -fno-omit-frame-pointer"
+                //cppFlags "-fsanitize=address -fno-omit-frame-pointer"
+            }
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path "src/main/cpp/CMakeLists.txt"
+            //version "3.18.1"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dependencies {
+        implementation 'com.google.android.material:material:1.6.0'  // 使用最新稳定版
+        // 其他依赖...
+    }
+}
